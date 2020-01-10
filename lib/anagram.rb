@@ -6,6 +6,15 @@ class Anagram
     @to_match = to_match
   end
 
+  #------more elegant solution---------
+  def match(match_array)
+    sorted_to_match = self.to_match.chars.sort
+    match_array.select {|word| word.chars.sort = sorted_to_match}
+  end
+
+  #------previous solution---------
+
+=begin
   def match(match_array)
     #We want to find the anagrams of the to match
     to_match_array = self.to_match_to_char
@@ -29,5 +38,7 @@ class Anagram
     end
     array_of_chars
   end
+=end
+
 
 end
