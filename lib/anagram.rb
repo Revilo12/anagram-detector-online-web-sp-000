@@ -22,7 +22,7 @@ class Anagram
 
   def to_match_to_char
     index = 0
-    array_of_chars - []
+    array_of_chars = []
     while index < self.to_match.length
       array_of_chars << self.to_match[index]
       index += 1
