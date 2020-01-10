@@ -8,10 +8,26 @@ class Anagram
 
   def match(match_array)
     #We want to find the anagrams of the to match
-    to_match = self.to_match
+    to_match_array = self.to_match_to_char
     #We need to make sure that their length is the same as to match first (select)
-    same_length = match_array.select {|word| word.length == to_match.length}
-    puts same_length
+    same_length = match_array.select {|word| word.length == self.to_match.length}
+    same_length.uniq! #make sure they are all unique
     #Each character in the first one needs to be present in the second
+    same_length.select do |word|
+      to_match_to_char.all? do |char|
+        word.include?(char)
+      end
+    end
+  end
+
+  def to_match_to_char
+    index = 0
+    array_of_chars - []
+    while index < self.to_match.length
+      array_of_chars << self.to_match[index]
+      index += 1
+    end
+    array_of_chars
+  end
 
 end
