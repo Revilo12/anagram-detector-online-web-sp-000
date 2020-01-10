@@ -9,7 +9,7 @@ class Anagram
   #------more elegant solution---------
   def match(match_array)
     sorted_to_match = self.to_match.chars.sort
-    match_array.select {|word| (word.chars.sort) = sorted_to_match}
+    match_array.select {|word| word.chars.sort == sorted_to_match}
   end
 
   #------previous solution---------
